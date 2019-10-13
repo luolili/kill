@@ -1,6 +1,6 @@
 package com.luo.kill.model.mapper;
 
-import com.debug.kill.model.entity.Item;
+import com.luo.kill.model.entity.Item;
 
 public interface ItemMapper {
     int deleteByPrimaryKey(Integer id);

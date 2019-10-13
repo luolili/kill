@@ -1,6 +1,6 @@
 package com.luo.kill.model.mapper;
 
-import com.debug.kill.model.entity.User;
+import com.luo.kill.model.entity.User;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {

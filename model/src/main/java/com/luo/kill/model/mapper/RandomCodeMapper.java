@@ -1,6 +1,6 @@
 package com.luo.kill.model.mapper;
 
-import com.debug.kill.model.entity.RandomCode;
+import com.luo.kill.model.entity.RandomCode;
 
 public interface RandomCodeMapper {
     int deleteByPrimaryKey(Integer id);
