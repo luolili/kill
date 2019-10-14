@@ -12,12 +12,11 @@ import java.util.List;
 @Service
 @Slf4j
 public class ItemService implements IItemService {
-
     @Autowired
-    private ItemKillMapper itemKillMapper;
+    ItemKillMapper itemKillMapper;
 
     @Override
     public List<ItemKill> getKillItems() throws Exception {
-        List<ItemKill> killList = itemKillMapper.selectAll();
+        return itemKillMapper.selectAll();
     }
 }
