@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @ImportResource(value = {"classpath:spring/spring-jdbc.xml"})
-@MapperScan(basePackages = {"com.luo.kill.mode.mapper"})
+@MapperScan(basePackages = {"com.luo.kill.model.mapper"})
 public class MainApp extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

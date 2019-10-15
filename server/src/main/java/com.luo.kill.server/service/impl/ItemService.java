@@ -16,7 +16,7 @@ public class ItemService implements IItemService {
     ItemKillMapper itemKillMapper;
 
     @Override
-    public List<ItemKill> getKillItems() throws Exception {
+    public List<ItemKill> getKillItems() {
         return itemKillMapper.selectAll();
     }
 }

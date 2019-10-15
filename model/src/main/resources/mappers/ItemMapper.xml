@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.debug.kill.model.mapper.ItemMapper" >
-  <resultMap id="BaseResultMap" type="com.debug.kill.model.entity.Item" >
+<mapper namespace="com.luo.kill.model.mapper.ItemMapper">
+    <resultMap id="BaseResultMap" type="com.luo.kill.model.entity.Item">
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="code" property="code" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from item
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.debug.kill.model.entity.Item" >
+    <insert id="insert" parameterType="com.luo.kill.model.entity.Item">
     insert into item (id, name, code, 
       stock, purchase_time, is_active, 
       create_time, update_time)
@@ -32,7 +32,7 @@
       #{stock,jdbcType=BIGINT}, #{purchaseTime,jdbcType=DATE}, #{isActive,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.debug.kill.model.entity.Item" >
+    <insert id="insertSelective" parameterType="com.luo.kill.model.entity.Item">
     insert into item
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.debug.kill.model.entity.Item" >
+    <update id="updateByPrimaryKeySelective" parameterType="com.luo.kill.model.entity.Item">
     update item
     <set >
       <if test="name != null" >
@@ -114,7 +114,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.debug.kill.model.entity.Item" >
+    <update id="updateByPrimaryKey" parameterType="com.luo.kill.model.entity.Item">
     update item
     set name = #{name,jdbcType=VARCHAR},
       code = #{code,jdbcType=VARCHAR},

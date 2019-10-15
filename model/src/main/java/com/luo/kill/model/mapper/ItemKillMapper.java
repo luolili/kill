@@ -1,6 +1,7 @@
 package com.luo.kill.model.mapper;
 
 import com.luo.kill.model.entity.ItemKill;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

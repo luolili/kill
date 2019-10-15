@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.debug.kill.model.mapper.RandomCodeMapper" >
-  <resultMap id="BaseResultMap" type="com.debug.kill.model.entity.RandomCode" >
+<mapper namespace="com.luo.kill.model.mapper.RandomCodeMapper">
+    <resultMap id="BaseResultMap" type="com.luo.kill.model.entity.RandomCode">
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="code" property="code" jdbcType="VARCHAR" />
   </resultMap>
@@ -18,11 +18,11 @@
     delete from random_code
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.debug.kill.model.entity.RandomCode" >
+    <insert id="insert" parameterType="com.luo.kill.model.entity.RandomCode">
     insert into random_code (id, code)
     values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.debug.kill.model.entity.RandomCode" >
+    <insert id="insertSelective" parameterType="com.luo.kill.model.entity.RandomCode">
     insert into random_code
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -41,7 +41,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.debug.kill.model.entity.RandomCode" >
+    <update id="updateByPrimaryKeySelective" parameterType="com.luo.kill.model.entity.RandomCode">
     update random_code
     <set >
       <if test="code != null" >
@@ -50,7 +50,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.debug.kill.model.entity.RandomCode" >
+    <update id="updateByPrimaryKey" parameterType="com.luo.kill.model.entity.RandomCode">
     update random_code
     set code = #{code,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
