@@ -35,10 +35,10 @@ public class ItemController {
     }
 
     @RequestMapping(value = prefix + "detail/{id}", method = RequestMethod.GET)
-    public String detail(@PathVariable Integer id) {
+    public String detail(@PathVariable Integer id, ModelMap modelMap) {
         try {
-            List<ItemKill> killItems = itemService.getKillItems();
-            // modelMap.put("list", killItems);
+            ItemKill killDetail = itemService.getKillDetail(id);
+            modelMap.put("detail", killDetail);
             // log.info("list:{}",killItems);
         } catch (Exception e) {
             return "redirect:base/error";

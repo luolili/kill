@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IItemService {
     List<ItemKill> getKillItems();
+
+    ItemKill getKillDetail(Integer id) throws Exception;
 }

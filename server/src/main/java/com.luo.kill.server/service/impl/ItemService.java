@@ -19,4 +19,12 @@ public class ItemService implements IItemService {
     public List<ItemKill> getKillItems() {
         return itemKillMapper.selectAll();
     }
+
+    @Override
+    public ItemKill getKillDetail(Integer id) throws Exception {
+        if (id == null || id <= 0) {
+            throw new Exception("-");
+        }
+        return itemKillMapper.selectById(id);
+    }
 }
