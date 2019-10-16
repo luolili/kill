@@ -15,11 +15,10 @@ public class KillController {
     @Autowired
     private KillService killService;
 
-    @RequestMapping(value = "detail/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "kill", method = RequestMethod.GET)
     public String detail(KillDto killDto, ModelMap modelMap) {
         try {
             killService.kill(killDto.getKillId(), killDto.getUserId());
-            // log.info("list:{}",killItems);
         } catch (Exception e) {
             return "redirect:base/error";
         }
