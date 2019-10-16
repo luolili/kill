@@ -14,7 +14,7 @@ public class RabbitReceiverService {
         try {
             System.out.println(info);
             //send email
-    
+
         } catch (Exception e) {
 
         }
