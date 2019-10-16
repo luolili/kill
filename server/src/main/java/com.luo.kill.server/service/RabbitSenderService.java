@@ -35,7 +35,7 @@ public class RabbitSenderService {
                     rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
                     rabbitTemplate.setExchange(env.getProperty("mq.kill.item.success.email.exchange"));
                     rabbitTemplate.setRoutingKey(env.getProperty("mq.kill.item.success.email.routing.key"));
-                    rabbitTemplate.convertAndSend(MessageBuilder.withBody(orderNo.getBytes()));
+                    //rabbitTemplate.convertAndSend(MessageBuilder.withBody(orderNo.getBytes()));
 
                     rabbitTemplate.convertAndSend(info, new MessagePostProcessor() {
                         @Override
