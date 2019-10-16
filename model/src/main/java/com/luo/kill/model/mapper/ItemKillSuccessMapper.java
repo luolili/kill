@@ -1,5 +1,6 @@
 package com.luo.kill.model.mapper;
 
+import com.luo.kill.model.dto.KillSuccessUserInfo;
 import com.luo.kill.model.entity.ItemKillSuccess;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,7 +21,7 @@ public interface ItemKillSuccessMapper {
 
     int countByKillUserId(@Param("killId") Integer killId, @Param("userId") Integer userId);
 
-    //KillSuccessUserInfo selectByCode(@Param("code") String code);
+    KillSuccessUserInfo selectByCode(@Param("code") String code);
 
     int expireOrder(@Param("code") String code);
 
