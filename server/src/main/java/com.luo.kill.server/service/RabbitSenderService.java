@@ -55,4 +55,37 @@ public class RabbitSenderService {
 
         }
     }
+
+    //秒杀成功之后，发送消息到dead queue
+    public void sendKillSuccessExpireMsg(String orderCode) {
+        try {
+            if (StringUtils.isNoneBlank(orderCode)) {
+                KillSuccessUserInfo info = itemKillSuccessMapper.selectByCode(orderCode);
+                if (info != null) {
+                    rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
+                    rabbitTemplate.setExchange(env.getProperty("mq.kill.item.success.kill.dead.prod.exchange"));
+                    rabbitTemplate.setRoutingKey(env.getProperty("\"mq.kill.item.success.kill.dead.routing.key"));
+                    rabbitTemplate.convertAndSend(info, new MessagePostProcessor() {
+                        @Override
+                        public Message postProcessMessage(Message message) throws AmqpException {
+                            MessageProperties mp = message.getMessageProperties();
+                            mp.setDeliveryMode(MessageDeliveryMode.PERSISTENT);
+                            mp.setHeader(AbstractJavaTypeMapper.DEFAULT_KEY_CLASSID_FIELD_NAME,
+                                    KillSuccessUserInfo.class);
+
+                            // 动态设置 ttl
+                            mp.setExpiration(env.getProperty("mq.kill.item.success.kill.expire"));
+
+                            return message;
+                        }
+                    });
+
+                }
+            }
+        } catch (Exception e) {
+
+        }
+
+    }
+
 }

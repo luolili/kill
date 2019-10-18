@@ -6,3 +6,7 @@
  Will use 'SELECT 1' instead.
  
  druid与mysql的版本不兼容，到maven druid 看需要下载的 mysql 版本
+ 
+ 4.超时未支付改变状态
+ 
+ - 死信队列

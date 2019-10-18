@@ -48,6 +48,8 @@ public class KillService {
 
         if (res > 0) {
             rabbitSenderService.sendKillSuccessEmailMsg(orderCode);
+            // 入死信队列
+            rabbitSenderService.sendKillSuccessExpireMsg(orderCode);
         }
         return true;
 

@@ -111,7 +111,6 @@ public class RabbitmqConfig {
 
 
     //构建秒杀成功之后-订单超时未支付的死信队列消息模型
-
     @Bean
     public Queue successKillDeadQueue() {
         Map<String, Object> argsMap = Maps.newHashMap();
@@ -125,7 +124,6 @@ public class RabbitmqConfig {
     public TopicExchange successKillDeadProdExchange() {
         return new TopicExchange(env.getProperty("mq.kill.item.success.kill.dead.prod.exchange"), true, false);
     }
-
     //创建基本交换机+基本路由 -> 死信队列 的绑定
     @Bean
     public Binding successKillDeadProdBinding() {
