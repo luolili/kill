@@ -62,11 +62,7 @@
   </update>
 
 
-
-
-
-
-  <!--获取秒杀详情V2-->
+    <!-- 并发 获取秒杀详情V2-->
     <select id="selectByIdV2" resultType="com.luo.kill.model.entity.ItemKill">
     SELECT
       a.*,
@@ -80,15 +76,7 @@
   </select>
 
 
-
-
-
-
-
-
-
-
-  <!--抢购商品，剩余数量减一-->
+    <!-- 优化：a.total>0 抢购商品，剩余数量减一-->
   <update id="updateKillItemV2">
     UPDATE item_kill
     SET total = total - 1
