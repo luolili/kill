@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 @Service
 public class RabbitSenderService {
 
@@ -19,7 +21,7 @@ public class RabbitSenderService {
     private RabbitTemplate rabbitTemplate;
     @Autowired
     private Environment env;
-    @Autowired
+    @Resource
     private ItemKillSuccessMapper itemKillSuccessMapper;
     /**
      * 秒杀成功，发送消息
@@ -75,7 +77,6 @@ public class RabbitSenderService {
 
                             // 动态设置 ttl
                             mp.setExpiration(env.getProperty("mq.kill.item.success.kill.expire"));
-
                             return message;
                         }
                     });
